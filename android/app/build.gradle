@@ -1,0 +1,147 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader -> localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+//+ firebase, google service
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 31
+//    compileSdkVersion flutter.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    /**
+     * * +[2021.12.29] Use Java 11 source code in your project.
+     * You can now compile up to Java 11 source code in your app’s project,
+     * enabling you to use newer language features like private interface methods,
+     * the diamond operator for anonymous classes, and local variable syntax for lambda parameters.*/
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    /**
+     * +[2021.12.29] Improved lint for library dependencies
+     * Running lint with checkDependencies = true is now faster than before.
+     * For Android projects consisting of an app with library dependencies, it is recommended to set checkDependencies to true as shown below,
+     * and to run lint via ./gradlew :app:lint, which will analyze all dependency modules in parallel and produce a single report including
+     * issues from the app and all of its dependencies.*/
+    lintOptions {
+        checkDependencies true
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.lgsdiamant.enclave"
+        minSdkVersion 21
+        targetSdkVersion 31
+//        minSdkVersion flutter.minSdkVersion
+//        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    // Encapsulates signing configurations.
+    signingConfigs {
+        // Creates a signing configuration called "release".
+        release {
+            // Specifies the path to your keystore file.
+            keyAlias 'TelepathyReleaseKey'
+            // Specifies the password for your keystore.
+            keyPassword 'bril8147'
+            // Specifies the identifying name for your key.
+            storeFile file("$release_key_pc")
+//            storeFile file("$release_key_mac")
+            // Specifies the password for your key.
+            storePassword 'bril8147'
+        }
+        debug {
+            keyAlias 'AndroidDebugKey'
+            storeFile file(("$debug_key_pc"))
+//            storeFile file(("$debug_key_mac"))
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true // Enables code shrinking for the release build type.
+            shrinkResources false
+//            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Adds the "release" signing configuration to the release build type.
+            signingConfig signingConfigs.release
+
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+
+            kotlinOptions {
+                freeCompilerArgs += ['-Xopt-in=kotlin.RequiresOptIn']
+            }
+        }
+        debug {
+            minifyEnabled false
+
+            // Adds the "debug" signing configuration to the debug build type.
+            signingConfig signingConfigs.debug
+
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+
+            kotlinOptions {
+                freeCompilerArgs += ['-Xopt-in=kotlin.RequiresOptIn']
+            }
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.6.0-alpha03'
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+
+

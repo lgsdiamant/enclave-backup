@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by 이광석 on 2022/01/16.
+  
+*/
+
+"CFBundleDisplayName" = "인클";
+"CFBundleName" = "인클";

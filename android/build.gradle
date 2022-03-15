@@ -1,0 +1,42 @@
+ext {
+    // key
+    debug_key_mac = '/Volumes/macNVMe/Development/Projects/_ProjectData/Enclave/_keystore/TelepathyDebugKey.keystore'
+    release_key_mac = '/Volumes/macNVMe/Development/Projects/_ProjectData/Enclave/_keystore/TelepathyReleaseKey.jks'
+    debug_key_pc = 'F:\\Development\\Projects_Data\\Encalve\\_keystore\\TelepathyDebugKey.keystore'
+    release_key_pc = 'F:\\Development\\Projects_Data\\Encalve\\_keystore\\TelepathyReleaseKey.jks'
+}
+
+buildscript {
+    ext.kotlin_version = '1.6.10'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        //+ firebase
+        classpath 'com.google.gms:google-services:4.3.10'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,320 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:7187183267458213962",
+      "lastPropertyId": "5:2669680085190594451",
+      "name": "EnAdmin",
+      "properties": [
+        {
+          "id": "1:5788958423044726213",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:5812627185923108440",
+          "name": "isMain",
+          "type": 1
+        },
+        {
+          "id": "3:141181934719245825",
+          "name": "personName",
+          "type": 9
+        },
+        {
+          "id": "4:5762077165316870626",
+          "name": "mobilePhone",
+          "type": 9
+        },
+        {
+          "id": "5:2669680085190594451",
+          "name": "email",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:5436227338917221730",
+      "lastPropertyId": "5:54900813849247124",
+      "name": "EnBoard",
+      "properties": [
+        {
+          "id": "1:3334358835952382233",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:7461178395802149410",
+          "name": "boardTitle",
+          "type": 9
+        },
+        {
+          "id": "3:6141843203331277251",
+          "name": "personName",
+          "type": 9
+        },
+        {
+          "id": "4:1179410592844837856",
+          "name": "mobilePhone",
+          "type": 9
+        },
+        {
+          "id": "5:54900813849247124",
+          "name": "email",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:4869442814838137858",
+      "lastPropertyId": "17:4848491494901352075",
+      "name": "EnMember",
+      "properties": [
+        {
+          "id": "1:3787361899978391512",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "7:2699924386844197680",
+          "name": "personName",
+          "type": 9
+        },
+        {
+          "id": "8:6615687450958295100",
+          "name": "mobilePhone",
+          "type": 9
+        },
+        {
+          "id": "9:5743418513371203710",
+          "name": "fieldValues",
+          "type": 30
+        },
+        {
+          "id": "12:7040886064405686201",
+          "name": "lastFieldValueChanged",
+          "type": 6
+        },
+        {
+          "id": "14:8999559001868078828",
+          "name": "lastFullImageChanged",
+          "type": 6
+        },
+        {
+          "id": "15:8271550908458450241",
+          "name": "lastProfileImageChanged",
+          "type": 6
+        },
+        {
+          "id": "16:374728678307877224",
+          "name": "storageDocProfileImage",
+          "type": 9
+        },
+        {
+          "id": "17:4848491494901352075",
+          "name": "storageDocFullImage",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:673941242796280038",
+      "lastPropertyId": "5:4739967624339059596",
+      "name": "EnPoc",
+      "properties": [
+        {
+          "id": "1:7320642411645203891",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:6117512970514426283",
+          "name": "boardTitle",
+          "type": 9
+        },
+        {
+          "id": "3:1011055479748994393",
+          "name": "personName",
+          "type": 9
+        },
+        {
+          "id": "4:5089835824418652050",
+          "name": "mobilePhone",
+          "type": 9
+        },
+        {
+          "id": "5:4739967624339059596",
+          "name": "email",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:5980223006355388632",
+      "lastPropertyId": "3:3292261121966577974",
+      "name": "EnTerm",
+      "properties": [
+        {
+          "id": "1:2448612381880281395",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:5874727293580059190",
+          "name": "term",
+          "type": 9
+        },
+        {
+          "id": "3:3292261121966577974",
+          "name": "displayTerm",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:7999344748895732531",
+      "lastPropertyId": "4:1151382343130307201",
+      "name": "EnUrl",
+      "properties": [
+        {
+          "id": "1:6433329058985063113",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:7668391491956406050",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "3:7865753926379470656",
+          "name": "address",
+          "type": 9
+        },
+        {
+          "id": "4:1151382343130307201",
+          "name": "description",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "8:7354943905839322380",
+      "lastPropertyId": "13:8902913224504232047",
+      "name": "EnField",
+      "properties": [
+        {
+          "id": "1:2353061578105105232",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:9060233389112597378",
+          "name": "fieldName",
+          "type": 9
+        },
+        {
+          "id": "4:4435874965641172982",
+          "name": "isDistinct",
+          "type": 1
+        },
+        {
+          "id": "5:527004546555030727",
+          "name": "isPhone",
+          "type": 1
+        },
+        {
+          "id": "6:9145940399941631855",
+          "name": "isUrl",
+          "type": 1
+        },
+        {
+          "id": "7:5699418316106754506",
+          "name": "isEmail",
+          "type": 1
+        },
+        {
+          "id": "8:990088651495142203",
+          "name": "adminEditable",
+          "type": 1
+        },
+        {
+          "id": "9:6962090498799523950",
+          "name": "memberEditable",
+          "type": 1
+        },
+        {
+          "id": "10:225750685023622616",
+          "name": "memberHidable",
+          "type": 1
+        },
+        {
+          "id": "11:4552284413952812992",
+          "name": "thumbViewable",
+          "type": 1
+        },
+        {
+          "id": "12:6277064110487980320",
+          "name": "maxLines",
+          "type": 6
+        },
+        {
+          "id": "13:8902913224504232047",
+          "name": "displayTerm",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "8:7354943905839322380",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    5753447025777262262
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    5668580988109365044,
+    3805453618052193611,
+    1570209675609348287,
+    4290005978425452609,
+    3523587056584268485,
+    4603950754830115050,
+    5259439042091450437,
+    8788550569784654141,
+    5715443830768221861,
+    1285293886135312919,
+    4287103933090011208,
+    7700039451723380046,
+    4630865486973681769,
+    1083478646112366745,
+    5624098247966504271,
+    5703911407809906685,
+    1549119732520770140,
+    7020471117687623662,
+    5198772753135196615,
+    7155106865483675208,
+    5257380455920900378
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

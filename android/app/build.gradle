@@ -80,8 +80,8 @@ android {
             // Specifies the password for your keystore.
             keyPassword 'bril8147'
             // Specifies the identifying name for your key.
-            storeFile file("$release_key_pc")
-//            storeFile file("$release_key_mac")
+//            storeFile file("$release_key_pc")
+            storeFile file("$release_key_mac")
             // Specifies the password for your key.
             storePassword 'bril8147'
         }

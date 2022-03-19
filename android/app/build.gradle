@@ -87,8 +87,8 @@ android {
         }
         debug {
             keyAlias 'AndroidDebugKey'
-            storeFile file(("$debug_key_pc"))
-//            storeFile file(("$debug_key_mac"))
+//            storeFile file(("$debug_key_pc"))
+            storeFile file(("$debug_key_mac"))
         }
     }
 
